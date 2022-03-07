@@ -1,4 +1,3 @@
-import { clear } from '@testing-library/user-event/dist/clear';
 import React, {useState} from 'react';
 
 function Counter() {
@@ -16,17 +15,37 @@ function Counter() {
     const twoDecrease = () => {
         setNumber(number - 2);
     }
+    const clear = () => {
+        setNumber(0);
+    }
+    const autoIncrease = () => {
+        setNumber(number + 1);
+        let timerId = setTimeout(setNumber(number + 1), 1000);
+    }
+    const autoDecrease = () => {
+        setNumber(number - 1);
+        let timerId = setTimeout(setNumber(number - 1), 1000);
+    }
     return (
         <div>
             <div>
                 <h1>{number}</h1>
-                <button onClick={oneIncrease}>+1</button>
                 <button onClick={oneDecrease}>-1</button>       
+                <button onClick={oneIncrease}>+1</button>
             </div>         
         
             <div>
-                <button onClick={twoIncrease}>+2</button>
                 <button onClick={twoDecrease}>-2</button>
+                <button onClick={twoIncrease}>+2</button>
+            </div>
+
+            <div>
+                <button onClick={clear}>CLEAR</button>
+            </div>
+
+            <div>
+                <button onClick={autoDecrease}>auto -</button>
+                <button onClick={autoIncrease}>auto +</button>
             </div>
 
 
