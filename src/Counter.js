@@ -19,13 +19,16 @@ function Counter() {
         setNumber(0);
     }
     const autoIncrease = () => {
-        setNumber(number + 1);
-        let timerId = setTimeout(setNumber(number + 1), 1000);
+        setInterval(() => {
+            setNumber((number) => number + 1);
+        },1000);
     }
     const autoDecrease = () => {
-        setNumber(number - 1);
-        let timerId = setTimeout(setNumber(number - 1), 1000);
+        setInterval(() => {
+            setNumber((number) => number - 1);
+        },1000);
     }
+ 
     return (
         <div>
             <div>
